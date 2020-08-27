@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>GDrive Helper</title>
+      <link rel="icon" href="icon.png" type="image/png" sizes="16x16">
+
+		<!-- Ionic Framework CDN -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
+		<script defer type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+		<script defer nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+
+		<!-- Ionicons CDN -->
+		<script defer src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+
+		<link rel="stylesheet" href="./variables.css"/>
+		<link rel="stylesheet" href="./style.css"/>
+		<script defer src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script defer src="app.js"></script>
+	</head>
+
+	<body>
+		<ion-app>
+			<ion-header>
+				<ion-toolbar color="primary">
+					<ion-title>
+						GDrive Helper
+					</ion-title>
+				</ion-toolbar>
+			</ion-header>
+		 
+			<ion-content overflow-scroll="true">
+				<ion-card class="ion-padding">
+					<h3 style="text-align:center">Fetch Details</h3> 
+						<ion-segment mode="ios" value="link" layout="icon-strat">
+							<ion-segment-button value="link" layout="icon-start">
+								<ion-label>Link</ion-label>
+								<ion-icon name="link-outline"></ion-icon>
+							</ion-segment-button>
+							<ion-segment-button value="id" layout="icon-start">
+								<ion-label>ID</ion-label>
+								<ion-icon name="finger-print-outline"></ion-icon>
+							</ion-segment-button>
+						</ion-segment>
+						<ion-item>
+							<ion-label position="floating">Link / id</ion-label>
+							<ion-input type="text" id="input-id"></ion-input>
+						</ion-item>
+					<ion-button color="primary" id="btn-submit" expand="block">Submit</ion-button>
+				</ion-card>
+				
+				<div id="result"></div>
+			
+			</ion-content>
+		</ion-app>
+	</body>
+</html>
