@@ -37,6 +37,8 @@ submitButton.addEventListener('click', () => {
 			return
 		}
 		fetchData(id);
+		let newPath = window.location.pathname + '?id=' + id;
+		window.history.pushState('page2', 'Title', newPath);
 	}
 });
     
@@ -149,4 +151,37 @@ const outputResult = (data) => {
 			  </ion-list>
 	`;
 	result.appendChild(resultElement);
+}
+
+/*
+var hash = window.location.hash.substr(1);
+
+var result1 = hash.split('&').reduce(function(res, item) {
+  var parts = item.split('=');
+  res[parts[0]] = parts[1];
+  return res;
+}, {});
+
+console.log(result1);
+*/
+
+const getQueryParameter = () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const entries = urlParams.entries();
+  // build params object
+  const params = {};
+  for (entry of entries) {
+    params[entry[0]] = entry[1];
+  }
+  return params;
+}
+
+//console.log(getQueryParameter());
+
+var params = getQueryParameter();
+if (params.id) {
+  fetchData(params.id);
+  idInput.value = params.id;
+  inputMethod = 'id';
+  segment.value = 'id';
 }
