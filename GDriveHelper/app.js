@@ -74,6 +74,9 @@ const fetchData = (id) => {
 		//console.log(response.data);
 		loading.dismiss();
 		if(response.data.status == '200'){
+		  if (!response.data.owner.photo) {
+		    response.data.owner.photo = 'https://ui-avatars.com/api/?background=random&length=1&bold=true&name='+response.data.owner.name
+		  }
 			outputResult(response.data);
 		} else {
 			const IdError = "Exception: Unexpected error while getting the method or property getFileById on object DriveApp."
