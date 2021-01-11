@@ -58,5 +58,14 @@
 				 ©️ 2021 <a href="https://e-labinnovations.github.io"> e-lab innovations</a> </center>
 			</ion-content>
 		</ion-app>
+		
+		<script>
+		  // register ServiceWorker, remember to use absolute path!
+		  if (navigator.serviceWorker) {
+		    navigator.serviceWorker.register('/tools/GDriveHelper/sw.js', { scope: '/tools/GDriveHelper/' })
+		  }
+		
+		  // --- Application code here ---
+		</script>
 	</body>
 </html>
