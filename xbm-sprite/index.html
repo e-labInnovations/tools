@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>XBM Sprite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, shrink-to-fit=no">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+ 
+  <body>
+    <h1>XBM Sprite</h1>
+    <div style="max-width: 800px">
+    	<div class="menu">
+    		<span class="project block">
+    			<button class="menuBtn" title="Open project file" onclick="document.getElementById('openproject').click()"><i class='fas fa-folder-open'></i></button> 
+    			<input id="openproject" type="file" onchange="loadProject(event)" accept="image/*" hidden>
+    			<button class="menuBtn" title="Generate project file" onclick="saveProject();"><i class='fas fa-save'></i></button>
+    		</span>
+    		<span class="block spritefiles">
+    			<button class="menuBtn" title="Add image files" onclick="document.getElementById('finput').click()"><i class='fas fa-file-image'></i></button>
+    			<input type="file" multiple="false" accept="image/*" id="finput" onchange="upload()" hidden>
+          <button class="menuBtn" title="Export sprite header" onclick="saveHeader();" style="font-weight:bold"> .h</button>
+          <button class="menuBtn" title="Convert to xbm" onclick="createXBM()" ><i class="fas fa-file-export"></i></button>
+    		</span>
+    		<span class="block options">
+    			<span class="option">name <input id="name" type="text" value="sprites" style="width: 80px" onchange=""></span>
+    			<span class="option">W:<input id="width" type="number" style="width: 50px" onchange=""></span>
+    			<span class="option">H:<input id="height" type="number" style="width: 50px" onchange=""></span>
+    		</span>
+    		<span class="block options" style="width: 90%;">
+    		  <span class="option" style="width: 100%;">
+    		     <input type="range" id="accuracy" value="125" name="volume" min="0" max="255" style="width: 90%;">
+  		     </span>
+		    </span>
+    	</div>
+    	<div class="hidden" id="files">
+    		Files
+    		<div id="filearea">
+    		</div>
+    	</div>
+    	<div id="sprites"></div>
+    </div>
+
+
+
+
+    <canvas id="can"></canvas>
+
+    <!-- <p>
+      <input type="file" multiple="false" accept="image/*" id="finput" onchange="upload()" >
+    </p> -->
+    <p>
+      <input type="button" value="Make Grayscale" onclick="makeGray()" >
+    </p>
+    
+    <script src="./js/SimpleImage.js" ></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
