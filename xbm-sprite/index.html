@@ -13,18 +13,17 @@
     <div style="max-width: 800px">
     	<div class="menu">
     		<span class="project block">
-    			<button class="menuBtn" title="Open project file" onclick="document.getElementById('openproject').click()"><i class='fas fa-folder-open'></i></button> 
-    			<input id="openproject" type="file" onchange="loadProject(event)" accept="image/*" hidden>
+    			<button class="menuBtn" title="Open image file" onclick="document.getElementById('finput').click()"><i class='fas fa-file-image'></i></button> 
+    			<input id="finput" type="file" onchange="upload()" accept="image/*" hidden>
     			<button class="menuBtn" title="Generate project file" onclick="saveProject();"><i class='fas fa-save'></i></button>
     		</span>
     		<span class="block spritefiles">
-    			<button class="menuBtn" title="Add image files" onclick="document.getElementById('finput').click()"><i class='fas fa-file-image'></i></button>
-    			<input type="file" multiple="false" accept="image/*" id="finput" onchange="upload()" hidden>
           <button class="menuBtn" title="Export sprite header" onclick="saveHeader();" style="font-weight:bold"> .h</button>
           <button class="menuBtn" title="Convert to xbm" onclick="createXBM()" ><i class="fas fa-file-export"></i></button>
+          <button class="menuBtn" title="Clear Monochrome Conversion" onclick="refreshImg()" ><i class="fas fa-sync-alt"></i></button>
     		</span>
     		<span class="block options">
-    			<span class="option">name <input id="name" type="text" value="sprites" style="width: 80px" onchange=""></span>
+    			<span class="option">name <input id="name" type="text" style="width: 80px" onchange=""></span>
     			<span class="option">W:<input id="width" type="number" style="width: 50px" onchange=""></span>
     			<span class="option">H:<input id="height" type="number" style="width: 50px" onchange=""></span>
     		</span>
@@ -39,22 +38,13 @@
     		<div id="filearea">
     		</div>
     	</div>
-    	<div id="sprites"></div>
+    	<div id="sprites">
+        <canvas id="can"></canvas>
+      </div>
     </div>
-
-
-
-
-    <canvas id="can"></canvas>
-
-    <!-- <p>
-      <input type="file" multiple="false" accept="image/*" id="finput" onchange="upload()" >
-    </p> -->
-    <p>
-      <input type="button" value="Make Grayscale" onclick="makeGray()" >
-    </p>
     
-    <script src="./js/SimpleImage.js" ></script>
+    
+    
     <script src="./js/script.js"></script>
   </body>
 </html>
