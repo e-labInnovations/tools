@@ -7,7 +7,6 @@ var accuracy = document.getElementById('accuracy');
 
 var ctx = canvas.getContext('2d');
 // register the handler 
-document.addEventListener('keyup', doc_keyUp, false);
 
 var sprite = {
   width: null,
@@ -66,18 +65,4 @@ const refreshImg = () => {
   }
   
   upload();
-}
-
-
-// define a handler for shortcuts
-function doc_keyUp(e) {
-  if (e.ctrlKey && e.keyCode == 79) {         // ctrl+o => Open image file
-    fileinput.click();
-  } else if (e.ctrlKey && e.keyCode == 69) {  // ctrl+e => Export
-    createXBM();
-  } else if (e.ctrlKey && e.keyCode == 83) { // ctrl+s => Save
-    alert('Save');
-  } else if (e.ctrlKey && e.keyCode == 82) { // ctrl+r => Save
-    refreshImg;
-  }
 }

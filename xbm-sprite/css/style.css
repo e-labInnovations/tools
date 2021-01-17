@@ -74,6 +74,9 @@ canvas {
   border: 1px solid lightgray;
 	/* cursor: none; */
 	image-rendering: pixelated;
+  display: block;
+  margin-left: auto;
+  margin-right: auto
 }
 .points {
 	background-color: #eeddcc;
