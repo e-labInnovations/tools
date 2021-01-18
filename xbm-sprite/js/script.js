@@ -14,7 +14,8 @@ var sprite = {
   zoom: 1,
   selected: false,
   xbmData: [],
-  imgData: null
+  imgData: null,
+  imgMData: null
 }
 
 
@@ -42,7 +43,12 @@ const createXBM = () => {
     return alert('No files selected');
   }
   
-  let pixels = sprite.imgData.data;
+  sprite.imgMData = new ImageData(
+    new Uint8ClampedArray(sprite.imgData.data),
+    sprite.imgData.width,
+    sprite.imgData.height
+  );
+  let pixels = sprite.imgMData.data;
   for (var i = 0; i < pixels.length; i += 4) {
     let red = pixels[i];
     let green = pixels[i + 1];
@@ -56,7 +62,7 @@ const createXBM = () => {
     pixels[i + 2] = lightness;
   }
   
-  ctx.putImageData(sprite.imgData, 0, 0);
+  ctx.putImageData(sprite.imgMData, 0, 0);
 }
 
 const refreshImg = () => {
@@ -64,5 +70,5 @@ const refreshImg = () => {
     return alert('No files selected');
   }
   
-  upload();
+  ctx.putImageData(sprite.imgData, 0, 0);
 }
