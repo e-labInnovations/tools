@@ -30,6 +30,7 @@
     		<span class="block options" style="width: 90%;">
     		  <span class="option" style="width: 100%;">
     		     <input type="range" id="accuracy" value="125" name="volume" min="0" max="255" style="width: 90%;">
+    		     <span id="accuracyDisplay">128</span>
   		     </span>
 		    </span>
     	</div>
@@ -41,11 +42,13 @@
     	<div id="sprites">
         <canvas id="can"></canvas>
       </div>
+      
+      <ul id="exportedFileList">
+        
+      </ul>
     </div>
     
-    <input type="file" name="test" id="test" value="" />
-    
-    
+    <script src="./js/canvastobmp.js"></script>
     <script src="./js/script.js"></script>
   </body>
 </html>

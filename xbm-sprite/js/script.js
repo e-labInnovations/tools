@@ -4,6 +4,8 @@ var inputWidth = document.getElementById("width");
 var inputHeight = document.getElementById("height");
 var canvas = document.getElementById('can');
 var accuracy = document.getElementById('accuracy');
+var accuracyDisplay = document.getElementById('accuracyDisplay');
+var exportedFileList = document.getElementById('exportedFileList');
 
 var ctx = canvas.getContext('2d');
 // register the handler 
@@ -18,7 +20,9 @@ var sprite = {
   imgMData: null
 }
 
-
+accuracy.addEventListener('change', e => {
+  accuracyDisplay.innerText = e.target.value;
+})
 
 const upload = () => {
   var img = new Image;
@@ -30,7 +34,7 @@ const upload = () => {
     //fill name, width & height
     inputWidth.value = sprite.width = this.width;
     inputHeight.value = sprite.height = this.height;
-    inputName.value = fileinput.files[0].name.split('.').slice(0, -1).join('.');
+    inputName.value = fileinput.files[0].name//.split('.').slice(0, -1).join('.');
     
     sprite.imgData = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height);
     sprite.selected = true;
@@ -63,6 +67,14 @@ const createXBM = () => {
   }
   
   ctx.putImageData(sprite.imgMData, 0, 0);
+  let pngURL = canvas.toDataURL('image/bmp');
+  
+  CanvasToBMP.toDataURL(canvas, function(uri) {
+    exportedFileList.innerHTML = '';
+    exportedFileList.appendChild(createFileListItem('bmp', uri));
+    exportedFileList.appendChild(createFileListItem('png', pngURL));
+    
+  });
 }
 
 const refreshImg = () => {
@@ -71,4 +83,16 @@ const refreshImg = () => {
   }
   
   ctx.putImageData(sprite.imgData, 0, 0);
+}
+
+
+const createFileListItem = (ext, uri) => {
+  let name = inputName.value + '.' + ext;
+  let li = document.createElement('li');
+  let a = document.createElement('a');
+  a.innerText = name;
+  a.download = name;
+  a.href = uri;
+  li.appendChild(a)
+  return li;
 }
