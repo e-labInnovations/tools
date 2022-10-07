@@ -1,0 +1,93 @@
+#sprites {
+  
+}
+.num {
+		width: 20px;
+		display: inline-block;
+}
+.option {
+	margin: 3px;
+}
+.options {
+	background-color: #aeaeee;
+}
+.spritefiles {
+	background-color: #aeeeee;
+}
+.menu {
+	background-color: #eeeeee;
+	padding: 1px;
+	display: block;
+	margin: 3px;
+	padding: 5px;
+	border-radius: 3px;		
+}
+
+.menuBtn {
+  font-size: 25px;
+}
+
+#sprites > div {
+	margin: 2px;
+	border-radius: 3px;
+	background-color: #aeeeae;
+	padding: 10px;
+	overflow: hidden;
+}
+#sprites > div > * {
+	margin-right: 5px;
+	vertical-align: top;
+}
+#sprites button {
+	float: right;
+}
+.right {
+	float: right;
+}
+h1 {
+	color: white;
+	background: #800000;
+	padding: 10px;
+	border-radius: 5px;
+}
+.block {
+	padding: 5px;
+	display: inline-block;
+	border-radius: 3px;
+}
+.project {
+	background-color: #eeeeae;
+}
+.hidden {
+	display: none;
+}
+.file {
+	background-color: #ffdddd;
+	margin-right: 5px;
+}
+h1 {
+	margin-bottom: 5px;
+}
+canvas {
+  height: 200px;
+  max-width: 100%;
+  border: 1px solid lightgray;
+	/* cursor: none; */
+	image-rendering: pixelated;
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+}
+.points {
+	background-color: #eeddcc;
+}
+.point {
+	background-color: #ccddee;
+	margin: 2px;
+	border-radius: 3px;
+	padding: 10px;
+	overflow: hidden;
+}
+.point input {
+	height: 23px;
+}

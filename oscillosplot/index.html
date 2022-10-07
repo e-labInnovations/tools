@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>OscillosPlot</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, shrink-to-fit=no">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+		integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+		crossorigin="anonymous" />
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+	<h1>OscillosPlot</h1>
+	<div style="max-width: 800px; ">
+		<div class="menu">
+			<span class="project block">
+				<button class="menuBtn" title="Open image file" onclick="document.getElementById('finput').click()"><i
+						class='fas fa-file-image'></i></button>
+				<input id="finput" type="file" onchange="upload()" accept="image/*" hidden>
+				<button class="menuBtn" title="Generate project file" onclick="saveProject();"><i
+						class='fas fa-save'></i></button>
+			</span>
+			<span class="block spritefiles">
+				<button class="menuBtn" title="Convert to Monochrome" onclick="createMonochrome()">
+					<i class="fas fa-file-export"></i>
+				</button>
+				<button class="menuBtn" title="Export sprite header" onclick="saveHeader();" style="font-weight:bold">
+					.h</button>
+				<button class="menuBtn" title="Clear Monochrome Conversion" onclick="refreshImg()">
+					<i class="fas fa-sync-alt"></i>
+				</button>
+			</span>
+			<span class="block options">
+				<span class="option">name <input id="name" type="text" style="width: 80px" onchange=""></span>
+				<span class="option">W:<input id="width" type="number" style="width: 50px" onchange=""></span>
+				<span class="option">H:<input id="height" type="number" style="width: 50px" onchange=""></span>
+			</span>
+			<span class="block options" style="width: 90%;">
+				<span class="option" style="width: 100%;">
+					<input type="range" id="accuracy" value="125" name="volume" min="0" max="255" style="width: 90%;">
+					<span id="accuracyDisplay">128</span>
+				</span>
+			</span>
+		</div>
+		<div class="hidden" id="files">
+			Files
+			<div id="filearea">
+			</div>
+		</div>
+		<div id="sprites">
+			<canvas id="can"></canvas>
+		</div>
+
+		<ul id="exportedFileList">
+
+		</ul>
+	</div>
+
+	<script src="./js/canvastobmp.js"></script>
+	<script src="./js/script.js"></script>
+</body>
+
+</html>
