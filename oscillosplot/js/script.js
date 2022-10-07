@@ -105,9 +105,9 @@ const saveHeader = () => {
   let pixels = sprite.imgMData.data;
   for (var i = 0; i < pixels.length; i += 4) {
     let red = pixels[i];
-    if (_y <= 0) {
-      _y = sprite.height
-      _x++
+    if (_x > sprite.width) {
+      _x = 1
+      _y--
     }
 
     if (red == 0) {
@@ -115,15 +115,15 @@ const saveHeader = () => {
       sprite.Xs.push(_x)
       sprite.Ys.push(_y)
     }
-    _y--
+    _x++
   }
 
   const pre = document.createElement("pre");
   const code = document.createElement("code");
 
   code.innerHTML = `const int NUM_POINTS = ${sprite.Xs.length};
-const unsigned long x_points[NUM_POINTS] = = ${sprite.Xs.join(',')};
-const unsigned long y_points[NUM_POINTS] = = ${sprite.Ys.join(',')};
+const unsigned long x_points[NUM_POINTS] = ${sprite.Xs.join(',')};
+const unsigned long y_points[NUM_POINTS] = ${sprite.Ys.join(',')};
 `
   pre.appendChild(code);
   exportedFileList.appendChild(pre);
