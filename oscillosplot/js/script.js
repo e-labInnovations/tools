@@ -111,8 +111,20 @@ const saveHeader = () => {
     }
 
     if (red == 0) {
-      sprite.Xs.push('' + _x + ', ' + _y)
+      // sprite.Xs.push('' + _x + ', ' + _y)
+      sprite.Xs.push(_x)
+      sprite.Ys.push(_y)
     }
     _y--
   }
+
+  const pre = document.createElement("pre");
+  const code = document.createElement("code");
+
+  code.innerHTML = `const int NUM_POINTS = ${sprite.Xs.length};
+const unsigned long x_points[NUM_POINTS] = = ${sprite.Xs.join(',')};
+const unsigned long y_points[NUM_POINTS] = = ${sprite.Ys.join(',')};
+`
+  pre.appendChild(code);
+  exportedFileList.appendChild(pre);
 }
