@@ -11,7 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
-<body>
+<body onload="init()">
 	<h1>OscillosPlot</h1>
 	<div style="max-width: 800px; ">
 		<div class="menu">
@@ -27,9 +27,19 @@
 					<i class="fas fa-file-export"></i>
 				</button>
 				<button class="menuBtn" title="Export sprite header" onclick="saveHeader();" style="font-weight:bold">
-					.h</button>
+					.h
+				</button>
+				<button class="menuBtn" title="Pencil" onclick="selectPencil()">
+					<i class="fas fa-pen"></i>
+				</button>
+				<button class="menuBtn" title="Eraser" onclick="selectEraser()">
+					<i class="fas fa-eraser"></i>
+				</button>
 				<button class="menuBtn" title="Clear Monochrome Conversion" onclick="refreshImg()">
 					<i class="fas fa-sync-alt"></i>
+				</button>
+				<button class="menuBtn" title="Clear Canvas" onclick="clearCanvas()">
+					<i class="far fa-times-circle"></i>
 				</button>
 			</span>
 			<span class="block options">
