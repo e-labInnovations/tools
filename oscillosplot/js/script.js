@@ -203,10 +203,12 @@ const saveHeader = () => {
   const pre = document.createElement("pre");
   const code = document.createElement("code");
 
-  code.innerHTML = `const int NUM_POINTS = ${sprite.Xs.length};
-const unsigned long x_points[NUM_POINTS] = ${sprite.Xs.join(',')};
-const unsigned long y_points[NUM_POINTS] = ${sprite.Ys.join(',')};
-`
+  code.innerHTML = `/* START */
+//${inputName.value}
+const int NUM_POINTS = ${sprite.Xs.length};
+const unsigned long x_points[NUM_POINTS] = {${sprite.Xs.join(',')}};
+const unsigned long y_points[NUM_POINTS] = {${sprite.Ys.join(',')}};
+/* END */`
   pre.appendChild(code);
   exportedFileList.appendChild(pre);
 }
